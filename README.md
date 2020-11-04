@@ -4,7 +4,7 @@ Rad Client is built using React and Apollo. This is a small demo app that allows
 
 This is the client side portion of the app. The server side can be found at [Rad-Server](https://github.com/ekingan/rad-server)
 
-Node Version 14.14.0
+`node version 14.14.0`
 
 Pull down this branch and run `npm install`
 
