@@ -30,7 +30,7 @@ class CreateCode extends Component {
   }
 
   handleError = error => {
-    const errorMessage = error.graphQLErrors.map(err => err.message).join(', ')
+    const errorMessage = String(error)
     this.setState({ errorMessage })
   }
 
@@ -76,7 +76,7 @@ class CreateCode extends Component {
         </Mutation>
         { newRecord.addCode &&
           <div>
-            You successfully saved a new {newRecord.addCode.type}, with a name {newRecord.addCode.name}, and a code{newRecord.addCode.code}.
+            You successfully saved a new {newRecord.addCode.type}, with a name {newRecord.addCode.name}, and a code {newRecord.addCode.code}.
           </div>
         }
         <div>{ errorMessage }</div>

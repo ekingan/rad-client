@@ -1,6 +1,6 @@
 # Getting Started with Rad Client
 
-Pull down this branch and run `npm install` or `yarn`
+Pull down this branch and run `npm install`
 
 ## Available Scripts
 
@@ -63,7 +63,11 @@ YD520V101061
 Verify you can decode the serial numbers.
 
 #### Test adding a new serial code
-* Now click on the header link that says `Add New Serial Code` . Here you will see a list of existing codes. Verify that you can successfully add a new code and that it will appear at the top of the list.
+* Now click on the header link that says `Add New Serial Code` . Here you will see a list of existing codes. Verify that you can successfully add a new code and that it will appear at the top of the list. Note: I added a database constraint where the code must be unique within a type.
+
+* Test that you receive an error message when you try to add a duplicate code. You can generate the error message by trying to add a new Bike model, with code `R`.
+(Note: Error handling with Prisma is not great. I was able to return the server error but not a user-friendly, readable error.)
+
 
 ### Assumptions
 
@@ -77,4 +81,5 @@ Given the examples of serial numbers and the decoded results I made the followin
 1. Any characters between the factory and the unique code are considered the version
 
 ### One more thing
-In my last several positions I have worked almost exclusively in Ruby on Rails. To complete this challenge using Ruby on Rails seemed too easy, and frankly, too boring, and I wanted to try my hand at creating this application using some tools I don't know very well. I am sure I am breaking some rules as far as what is considered to be 'best practice', however, I hope I get some points for trying something new and being able to learn quickly. Thanks for considering me for this opportunity!
+In my last several positions I have worked almost exclusively in Ruby on Rails. To complete this challenge using Ruby on Rails seemed too easy, and frankly, too boring, I wanted to try my hand at creating this application using some tools I don't know very well. I am sure I am breaking some rules as far as what is considered to be 'best practice', however, I hope I get some points for trying something new and being able to learn quickly. I could have spent a lot longer on this challenge but wanted to get it back to you without too much delay.
+Thanks for considering me for this opportunity!
