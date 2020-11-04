@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Switch, Route, withRouter } from 'react-router-dom'
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import Decoder from './Decoder'
