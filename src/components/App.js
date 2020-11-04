@@ -19,9 +19,9 @@ const CODES_QUERY = gql`
 `
 
 const updateStore = (store, addCode) => {
-  const codes = store.readQuery({ query: CODES_QUERY})
-  const updated = codes.codes.unshift(addCode)
-  store.writeQuery({ query: CODES_QUERY, updated})
+  const { codes } = store.readQuery({ query: CODES_QUERY})
+  const updatedCodes = codes.unshift(addCode)
+  store.writeQuery({ query: CODES_QUERY, data: { codes: updatedCodes } })
 }
 
 const App = () => {

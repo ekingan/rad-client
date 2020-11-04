@@ -4,6 +4,8 @@ Rad Client is built using React and Apollo. This is a small demo app that proces
 
 This is the client side portion of that app. The server side can be found at [Rad-Server](https://github.com/ekingan/rad-server)
 
+Node Version 14.14.0
+
 Pull down this branch and run `npm install`
 
 ## Available Scripts
@@ -64,7 +66,6 @@ Verify you can decode the serial numbers.
 
 * Test for errors:
   - Test that you receive an error message when you try to add a duplicate code. You can generate the error message by  trying to add a new Bike model, with code `R`.
-  - Test required fields. Try adding a new code without a name. Verify you get an error message
 
 (Note: Error handling with Prisma is not great. I was able to return the server error but not a user-friendly, readable error.)
 

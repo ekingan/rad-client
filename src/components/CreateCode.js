@@ -17,21 +17,20 @@ const ADD_CODE_MUTATION = gql`
 
 class CreateCode extends Component {
   state = {
-    code: null,
-    name: null,
+    code: undefined,
+    name: undefined,
     type: 'model',
     newRecord: {},
     errorMessage: '',
   }
 
   handleResponse = resp => {
-    this.setState({ newRecord: resp })
-    this.setState({code: '', name: '', type: ''})
+    this.setState({code: undefined, name: undefined, type: 'model', newRecord: resp, errorMessage: ''})
   }
 
   handleError = error => {
     const errorMessage = String(error)
-    this.setState({ errorMessage })
+    this.setState({ errorMessage, newRecord: {} })
   }
 
   render() {
