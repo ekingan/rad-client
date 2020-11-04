@@ -1,8 +1,8 @@
 # Getting Started with Rad Client
 
-Rad Client is built using React and Apollo. This is a small demo app that processes a list of serial numbers based on a list of codes. You can also add new codes within a type. The available types are (bike) model, year, and factory.
+Rad Client is built using React and Apollo. This is a small demo app that allows a user to enter a list of serial numbers, decodes each serial number, and then displays the decoded data to the user. You can also add new serial number codes to use in decoding serial numbers.
 
-This is the client side portion of that app. The server side can be found at [Rad-Server](https://github.com/ekingan/rad-server)
+This is the client side portion of the app. The server side can be found at [Rad-Server](https://github.com/ekingan/rad-server)
 
 Node Version 14.14.0
 
@@ -66,13 +66,14 @@ Verify you can decode the serial numbers.
 
 * Test for errors:
   - Test that you receive an error message when you try to add a duplicate code. You can generate the error message by  trying to add a new Bike model, with code `R`.
+  - Test that excluding required fields results in an error. You can submit the form with any field left blank to see this error.
 
 (Note: Error handling with Prisma is not great. I was able to return the server error but not a user-friendly, readable error.)
 
 
 ### Assumptions
 
-Given the examples of serial numbers and the decoded results I made the following assumptions:
+Given the examples of serial numbers and the decoded results from the coding challenge I made the following assumptions:
 1. The letter at index 0 represents the bike mode
 1. The letter at index 1 represents the model year
 1. The number at index 2 represents the model month
@@ -89,7 +90,9 @@ The JWT token is stored in localStorage - this is not ideal and this strategy sh
 
 I added basic component tests, yet robust business logic tests (in utils.test.js). In production these should be more robust
 
+Error handling needs improvement.
+
 ### One more thing
-In my last several positions I have worked almost exclusively in Ruby on Rails. To complete this challenge using Ruby on Rails seemed too easy, and frankly, I wanted to try my hand at creating this application using some tools I don't know very well. I am unsure on some of the best practices, however, I hope to get some points for trying something new and being able to learn quickly. I could have spent a lot longer on this challenge but wanted to get it back to you without too much delay.
+In my last several positions I have worked almost exclusively in Ruby on Rails. To complete this challenge using Ruby on Rails seemed too easy, and frankly, I wanted to try my hand at creating this application using some tools I don't know very well. I hope to get some points for trying something new and being able to learn quickly. I could have spent a lot longer on this challenge but wanted to get it back to you without too much delay.
 
 Thanks for considering me for this opportunity!
