@@ -17,8 +17,8 @@ const ADD_CODE_MUTATION = gql`
 
 class CreateCode extends Component {
   state = {
-    code: '',
-    name: '',
+    code: null,
+    name: null,
     type: 'model',
     newRecord: {},
     errorMessage: '',

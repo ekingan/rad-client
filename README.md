@@ -15,21 +15,13 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This client is set up to talk to the Rad Server on port 4000. Follow the instructions in the README here:
+[Rad-Server](https://github.com/ekingan/ to get your server running. You will need both client and server running in order to use this application.
 
 ### `npm test a`
 
 Launches the test runner and runs all tests in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### Known Issues
-
-When navigating between routes, the decooded serial number data does not persist.
-
-The JWT token is stored in localStorage - this is not ideal and this strategy should not be used on production code.
-
-I added basic component tests, yet robust business logic tests (in utils.test.js). In production these should be more robust
 
 ### Test Plan
 
@@ -48,18 +40,19 @@ Verify that you get an error message that you are not authorized to visit these 
 * Log in with your user. Verify you can log in.
 
 #### Test serial number decoding
+
 * Click on the link in the header that says `Decode Serial Numbers`
 
 * Enter this list of serial numbers that are separated by commas:
-`WBO19J101713,SB419J100413,RA118F100923,MCO19J111815,YD520V101061`
+`RB719F1000001,SB919F1000001,HB719F1000001,WBO19J101713,SB419J100413,RA118F100923,MCO19J111815,YD520V101061`
 
 Verify that the serial numbers can be decoded properly.
 
 * Enter a list of serial numbers, each on a new line:
 ```
-WBO19J101713
-SB419J100413
-RA118F100923
+RB719F1000001
+HB719F1000001
+SB919F1000001
 MCO19J111815
 YD520V101061
 ```
@@ -69,7 +62,10 @@ Verify you can decode the serial numbers.
 #### Test adding a new serial code
 * Now click on the header link that says `Add New Serial Code` . Here you will see a list of existing codes. Verify that you can successfully add a new code and that it will appear at the top of the list. Note: I added a database constraint where the code must be unique within a type.
 
-* Test that you receive an error message when you try to add a duplicate code. You can generate the error message by trying to add a new Bike model, with code `R`.
+* Test for errors:
+  - Test that you receive an error message when you try to add a duplicate code. You can generate the error message by  trying to add a new Bike model, with code `R`.
+  - Test required fields. Try adding a new code without a name. Verify you get an error message
+
 (Note: Error handling with Prisma is not great. I was able to return the server error but not a user-friendly, readable error.)
 
 
@@ -84,6 +80,15 @@ Given the examples of serial numbers and the decoded results I made the followin
 1. The last 6 digits represent the unique numberical code for the bike
 1. Any characters between the factory and the unique code are considered the version
 
+### Known Issues
+
+When navigating between routes, the decooded serial number data does not persist.
+
+The JWT token is stored in localStorage - this is not ideal and this strategy should not be used on production code.
+
+I added basic component tests, yet robust business logic tests (in utils.test.js). In production these should be more robust
+
 ### One more thing
-In my last several positions I have worked almost exclusively in Ruby on Rails. To complete this challenge using Ruby on Rails seemed too easy, and frankly, too boring, I wanted to try my hand at creating this application using some tools I don't know very well. I am sure I am breaking some rules as far as what is considered to be 'best practice', however, I hope I get some points for trying something new and being able to learn quickly. I could have spent a lot longer on this challenge but wanted to get it back to you without too much delay.
+In my last several positions I have worked almost exclusively in Ruby on Rails. To complete this challenge using Ruby on Rails seemed too easy, and frankly, I wanted to try my hand at creating this application using some tools I don't know very well. I am unsure on some of the best practices, however, I hope to get some points for trying something new and being able to learn quickly. I could have spent a lot longer on this challenge but wanted to get it back to you without too much delay.
+
 Thanks for considering me for this opportunity!

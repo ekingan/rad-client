@@ -46,7 +46,7 @@ describe('utilities', () => {
       month: 'February',
       yearManufactured: '19',
       factory: 'FactoryV',
-      version: '',
+      version: '1',
       unique: '101713'
     },
     {
@@ -55,7 +55,7 @@ describe('utilities', () => {
       month: 'February',
       yearManufactured: '19',
       factory: 'FactoryV',
-      version: '',
+      version: '1',
       unique: '101561'
     },
     {
@@ -64,7 +64,7 @@ describe('utilities', () => {
       month: 'January',
       yearManufactured: '18',
       factory: undefined,
-      version: '',
+      version: '1',
       unique: '101700'
     },
   ]
@@ -77,23 +77,23 @@ describe('utilities', () => {
 
   describe('processSerialNumbers', () => {
     it('returns an object with the names that correspond to the codes in a single serial number', () => {
-      expect(processSerialNumbers(codes, 'RB219V101713')).toStrictEqual([{
+      expect(processSerialNumbers(codes, 'RB219V1101713')).toStrictEqual([{
         model: 'RadRover',
         year: '2019',
         month: 'February',
         yearManufactured: '19',
         factory: 'FactoryV',
-        version: '',
+        version: '1',
         unique: '101713'
       }])
     })
 
     it('returns an object that decodes multiple serial numbers separated by commas', () => {
-      expect(processSerialNumbers(codes, 'RB219V101713, RB219V101561, MA118J101700')).toStrictEqual(decoded)
+      expect(processSerialNumbers(codes, 'RB219V1101713, RB219V1101561, MA118J1101700')).toStrictEqual(decoded)
     })
 
     it('returns an object that decodes multiple serial numbers on new lines or with white space', () => {
-      expect(processSerialNumbers(codes, 'RB219V101713\n RB219V101561\r MA118J101700   ')).toStrictEqual(decoded)
+      expect(processSerialNumbers(codes, 'RB219V1101713\n RB219V1101561\r MA118J1101700   ')).toStrictEqual(decoded)
     })
 
     it('returns a unique ID that is 6 digits', () => {
