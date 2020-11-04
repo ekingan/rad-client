@@ -1,5 +1,9 @@
 # Getting Started with Rad Client
 
+Rad Client is built using React and Apollo. This is a small demo app that processes a list of serial numbers based on a list of codes. You can also add new codes within a type. The available types are (bike) model, year, and factory.
+
+This is the client side portion of that app. The server side can be found at [Rad-Server](https://github.com/ekingan/rad-server)
+
 Pull down this branch and run `npm install`
 
 ## Available Scripts
